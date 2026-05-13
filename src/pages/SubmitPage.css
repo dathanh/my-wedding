@@ -1,0 +1,14 @@
+.submit-page__back {
+  padding: 24px 40px 0;
+}
+
+.submit-page__back-link {
+  font-family: var(--font-sans);
+  font-size: .85rem;
+  letter-spacing: 1px;
+  color: var(--color-primary);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: opacity .2s;
+}
+.submit-page__back-link:hover { opacity: .7; }

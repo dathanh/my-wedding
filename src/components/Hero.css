@@ -1,0 +1,155 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  background:
+    linear-gradient(160deg, rgba(28,27,41,.65) 0%, rgba(28,27,41,.28) 50%, rgba(201,123,90,.22) 100%),
+    url('/my-wedding/hero-bg.jpg') center/cover no-repeat;
+  color: #fff;
+  padding: 60px 24px;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 55% at 20% 80%, rgba(201,161,85,.16) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 45% at 80% 15%, rgba(122,158,135,.13) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  animation: fadeUp .9s ease both;
+}
+
+.hero__label {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  font-size: .72rem;
+  margin-bottom: 24px;
+  opacity: .7;
+}
+
+.hero__divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 0 auto 32px;
+  width: 220px;
+}
+.hero__divider-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(255,255,255,.3);
+}
+.hero__divider-diamond {
+  width: 6px;
+  height: 6px;
+  background: var(--color-gold);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+.hero__names {
+  font-size: clamp(3.2rem, 9vw, 6.2rem);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.05;
+  text-shadow: 0 2px 28px rgba(0,0,0,.25);
+}
+
+.hero__ampersand {
+  font-size: .6em;
+  color: var(--color-gold);
+  font-style: normal;
+  margin: 0 16px;
+  opacity: .85;
+}
+
+.hero__meta {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.hero__date {
+  font-size: .95rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font-weight: 300;
+  opacity: .8;
+}
+
+.hero__venue {
+  font-size: .85rem;
+  letter-spacing: 2px;
+  opacity: .55;
+  font-weight: 300;
+}
+
+.hero__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 48px;
+  padding: 15px 46px;
+  border: 1px solid rgba(255,255,255,.5);
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-size: .7rem;
+  font-family: var(--font-sans);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255,255,255,.08);
+  border-radius: 2px;
+  transition: background .3s, border-color .3s, transform .3s;
+}
+.hero__cta:hover {
+  background: rgba(255,255,255,.18);
+  border-color: rgba(255,255,255,.9);
+  transform: translateY(-3px);
+}
+.hero__cta-arrow { transition: transform .3s; }
+.hero__cta:hover .hero__cta-arrow { transform: translateX(5px); }
+
+.hero__scroll {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: .4;
+  animation: fadeUp 1.4s .6s ease both;
+}
+.hero__scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, transparent, #fff);
+  animation: scrollPulse 2s infinite;
+}
+.hero__scroll-text {
+  font-size: .58rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+@keyframes scrollPulse {
+  0%, 100% { opacity: .3; }
+  50%       { opacity: 1; }
+}

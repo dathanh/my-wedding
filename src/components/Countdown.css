@@ -1,0 +1,60 @@
+.countdown {
+  background: var(--color-dark);
+  padding: 0;
+}
+
+.countdown .section-wrap { padding: 80px 24px; }
+.countdown .section-header h2 { color: #fff; }
+.countdown .section-ornament { color: var(--color-gold); }
+.countdown .section-ornament::before { background: linear-gradient(90deg, transparent, var(--color-gold)); }
+.countdown .section-ornament::after  { background: linear-gradient(90deg, var(--color-gold), transparent); }
+
+.countdown__grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  animation: fadeUp .8s .2s ease both;
+}
+
+.countdown__unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: var(--radius-md);
+  padding: 28px 32px 20px;
+  min-width: 110px;
+  transition: border-color .3s, background .3s;
+}
+.countdown__unit:hover {
+  background: rgba(255,255,255,.09);
+  border-color: rgba(201,161,85,.45);
+}
+
+.countdown__number {
+  font-family: var(--font-serif);
+  font-size: 4rem;
+  font-weight: 300;
+  line-height: 1;
+  background: linear-gradient(135deg, #fff 30%, var(--color-gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.countdown__label {
+  font-size: .62rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-top: 10px;
+}
+
+@media (max-width: 480px) {
+  .countdown__unit { min-width: 80px; padding: 20px 18px 16px; }
+  .countdown__number { font-size: 2.8rem; }
+}
