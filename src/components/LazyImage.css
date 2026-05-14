@@ -1,0 +1,47 @@
+.lazy-wrap {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #e8ddd4 0%, #d6c8bc 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shimmer placeholder while loading */
+.lazy-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255,255,255,.25) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: lazy-shimmer 1.4s ease infinite;
+}
+
+/* Hide shimmer once image is loaded */
+.lazy-wrap[data-loaded='true']::before {
+  display: none;
+}
+
+@keyframes lazy-shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+.lazy-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0;
+  transition: opacity .45s ease;
+  position: absolute;
+  inset: 0;
+}
+
+.lazy-img--loaded {
+  opacity: 1;
+}

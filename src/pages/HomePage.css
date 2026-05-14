@@ -1,0 +1,344 @@
+/* ════════════════════════════════════════════════
+   Full-page scroll-snap layout
+   ════════════════════════════════════════════════ */
+
+/* Snap container — takes exactly the viewport */
+.fp {
+  height: 100vh;
+  height: 100dvh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  /* hide the scrollbar visually but keep it functional */
+  scrollbar-width: none;
+}
+.fp::-webkit-scrollbar { display: none; }
+
+/* Each snap page */
+.fp__section {
+  height: 100vh;
+  height: 100dvh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ── Section 1: Hero 50% + Countdown 50% ───────────────── */
+
+.fp__section--intro .hero {
+  flex: 1;
+  min-height: 0;
+}
+
+.fp__section--intro .countdown {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.fp__section--intro .countdown .section-wrap {
+  padding: 0 24px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.fp__section--intro .countdown .section-header {
+  margin-bottom: 24px;
+}
+.fp__section--intro .countdown .section-header h2 {
+  font-size: 1.1rem;
+  letter-spacing: 4px;
+}
+.fp__section--intro .countdown__number {
+  font-size: 3.6rem;
+}
+.fp__section--intro .countdown__unit {
+  padding: 22px 26px 16px;
+  min-width: 92px;
+}
+.fp__section--intro .countdown__label {
+  font-size: .62rem;
+}
+
+/* Bouncing scroll-down chevron */
+.fp__down {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 10;
+  opacity: .55;
+  transition: opacity .2s;
+  animation: fp-bounce 2.2s ease-in-out infinite;
+}
+.fp__down:hover { opacity: 1; }
+
+.fp__down-chevron {
+  display: block;
+  width: 13px;
+  height: 13px;
+  border-right: 2px solid rgba(255,255,255,.8);
+  border-bottom: 2px solid rgba(255,255,255,.8);
+  transform: rotate(45deg);
+}
+
+@keyframes fp-bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(8px); }
+}
+
+/* ── Section 2: Gallery 50% + Footer 50% ───────────────── */
+
+.fp__section--gallery .gallery {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+.fp__section--gallery .gallery .section-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 36px 24px 20px;
+}
+.fp__section--gallery .gallery .section-header {
+  margin-bottom: 20px;
+}
+
+/* Restore natural card proportions */
+.fp__section--gallery .gallery__cat-img {
+  aspect-ratio: 3/2;
+}
+
+.fp__section--gallery .gallery__cta {
+  margin-top: 20px;
+}
+.fp__section--gallery .gallery__cta-btn {
+  padding: 14px 36px;
+}
+
+/* Footer takes equal half */
+.fp__section--gallery .footer {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px;
+}
+.fp__section--gallery .footer__inner {
+  width: 100%;
+  text-align: center;
+}
+.fp__section--gallery .footer__ornament {
+  margin: 16px auto;
+}
+.fp__section--gallery .footer__names {
+  font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+  margin-bottom: 2px;
+}
+.fp__section--gallery .footer__date {
+  margin-bottom: 16px;
+}
+.fp__section--gallery .footer__copy {
+  margin-top: 16px;
+}
+
+/* Section 2 scrolls internally when content exceeds viewport */
+.fp__section--gallery {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.fp__section--gallery::-webkit-scrollbar { display: none; }
+
+/* ── Responsive ─────────────────────────────────────────── */
+
+/* Large tablet / small desktop (e.g. Nest Hub Max 1280×800) */
+@media (min-width: 1025px) and (max-width: 1280px) {
+  /* ── Section 1: scale down font so names fit in 50dvh ── */
+  .fp__section--intro .hero {
+    padding: 36px 48px;
+  }
+  .fp__section--intro .hero .hero__names {
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+  }
+  .fp__section--intro .hero .hero__meta {
+    margin-top: 20px;
+  }
+  .fp__section--intro .hero .hero__cta {
+    margin-top: 28px;
+  }
+
+  /* ── Section 2: keep cards inside 50dvh ── */
+  .fp__section--gallery .gallery .section-wrap {
+    padding: 24px 40px 16px;
+  }
+  .fp__section--gallery .gallery .section-header {
+    margin-bottom: 16px;
+  }
+  .fp__section--gallery .gallery__cat-img {
+    aspect-ratio: 16/7;
+  }
+  .fp__section--gallery .footer__names {
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+  }
+}
+
+/* Tablet: names stack vertically, hero padding trimmed so 1:1 halves hold */
+@media (min-width: 601px) and (max-width: 1024px) {
+  /* ── Section 1 ── */
+  .fp__section--intro .hero {
+    padding: 32px 40px;
+  }
+  .fp__section--intro .hero .hero__names {
+    font-size: clamp(2.6rem, 6vw, 4rem);
+  }
+  .fp__section--intro .hero .hero__meta {
+    margin-top: 18px;
+  }
+  .fp__section--intro .hero .hero__cta {
+    margin-top: 28px;
+    padding: 13px 36px;
+  }
+
+  /* ── Section 2: compact gallery so cards fit in 50dvh ── */
+  .fp__section--gallery .gallery .section-wrap {
+    padding: 20px 32px 12px;
+  }
+  .fp__section--gallery .gallery .section-header {
+    margin-bottom: 14px;
+  }
+  .fp__section--gallery .gallery .section-header h2 {
+    font-size: 1.15rem;
+    letter-spacing: 4px;
+  }
+
+  /* Much squarer cards — tall viewport half at landscape ≤1024px is ~300px */
+  .fp__section--gallery .gallery__cat-img {
+    aspect-ratio: 16/7;
+  }
+
+  .fp__section--gallery .gallery__cat-info {
+    padding: 16px 14px 12px;
+  }
+
+  /* Compact footer half */
+  .fp__section--gallery .footer__names {
+    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  }
+  .fp__section--gallery .footer__date {
+    font-size: .72rem;
+    letter-spacing: 2px;
+  }
+}
+
+@media (max-width: 600px) {
+  /* ── Section 1 intro: tighter hero so both halves fit in 50dvh ── */
+  .fp__section--intro .hero {
+    padding: 24px 20px;
+  }
+  .fp__section--intro .hero .hero__label {
+    font-size: .62rem;
+    margin-bottom: 14px;
+  }
+  .fp__section--intro .hero .hero__divider {
+    margin-bottom: 16px;
+  }
+  .fp__section--intro .hero .hero__names {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+  .fp__section--intro .hero .hero__meta {
+    margin-top: 14px;
+    gap: 4px;
+  }
+  .fp__section--intro .hero .hero__date {
+    font-size: .72rem;
+    letter-spacing: 3px;
+  }
+  .fp__section--intro .hero .hero__venue {
+    font-size: .72rem;
+  }
+  .fp__section--intro .hero .hero__cta {
+    margin-top: 20px;
+    padding: 11px 28px;
+    font-size: .65rem;
+    letter-spacing: 3px;
+  }
+
+  /* Countdown half: tighter wrap */
+  .fp__section--intro .countdown .section-wrap {
+    padding: 0 16px;
+  }
+  .fp__section--intro .countdown .section-header {
+    margin-bottom: 16px;
+  }
+  .fp__section--intro .countdown__number {
+    font-size: 2.4rem;
+  }
+  .fp__section--intro .countdown__unit {
+    padding: 14px 10px 10px;
+  }
+
+  /* Keep both cards side-by-side even on small screens */
+  .fp__section--gallery .gallery__categories {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  /* Tighter section padding so cards have more room */
+  .fp__section--gallery .gallery .section-wrap {
+    padding: 20px 16px 12px;
+  }
+  .fp__section--gallery .gallery .section-header {
+    margin-bottom: 12px;
+  }
+  .fp__section--gallery .gallery .section-header h2 {
+    font-size: 1rem;
+    letter-spacing: 3px;
+  }
+  .fp__section--gallery .gallery .section-header .ornament {
+    margin: 6px 0 0;
+  }
+
+  /* Squarer cards so both fit comfortably in the 50 vh half */
+  .fp__section--gallery .gallery__cat-img {
+    aspect-ratio: 4/3;
+  }
+
+  /* Smaller overlay text */
+  .fp__section--gallery .gallery__cat-info {
+    padding: 14px 10px 10px;
+  }
+  .fp__section--gallery .gallery__cat-subtitle {
+    font-size: .6rem;
+    letter-spacing: 2px;
+  }
+  .fp__section--gallery .gallery__cat-title {
+    font-size: 1rem;
+  }
+  .fp__section--gallery .gallery__cat-count {
+    font-size: .65rem;
+  }
+
+  /* Compact footer half */
+  .fp__section--gallery .footer__names {
+    font-size: 1.35rem;
+  }
+  .fp__section--gallery .footer__date {
+    font-size: .65rem;
+    letter-spacing: 1.5px;
+  }
+  .fp__section--gallery .footer__venue {
+    font-size: .78rem;
+  }
+}

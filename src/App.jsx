@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import SubmitPage from './pages/SubmitPage'
+import GalleryPage from './pages/GalleryPage'
 import './App.css'
 
 export default function App() {
@@ -8,6 +9,7 @@ export default function App() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/rsvp" element={<SubmitPage />} />
+      <Route path="/gallery/:categoryId" element={<GalleryPage />} />
     </Routes>
   )
 }

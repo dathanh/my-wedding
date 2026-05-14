@@ -19,7 +19,7 @@ export default function Footer() {
         <a href={wedding.venue.mapUrl} target="_blank" rel="noreferrer" className="footer__map">
           📍 {wedding.venue.address}
         </a>
-        <p className="footer__copy">Made with ♥</p>
+        <p className="footer__ampersand">Made with ♥</p>
       </div>
     </footer>
   )
