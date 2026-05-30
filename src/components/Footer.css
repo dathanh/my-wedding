@@ -1,6 +1,6 @@
 .footer {
   background: var(--color-dark);
-  color: rgba(255,255,255,.5);
+  color: rgba(255,255,255,.55);
   padding: 72px 24px 48px;
   text-align: center;
   position: relative;
@@ -12,8 +12,8 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 50% 60% at 0% 100%, rgba(201,161,85,.1) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 50% at 100% 0%, rgba(122,158,135,.07) 0%, transparent 70%);
+    radial-gradient(ellipse 50% 60% at 0% 100%, rgba(217,114,112,.12) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 50% at 100% 0%, rgba(217,114,112,.08) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -28,7 +28,7 @@
   margin-bottom: 4px;
 }
 
-.footer__ampersand { color: var(--color-gold); margin: 0 12px; }
+.footer__ampersand { color: var(--color-primary-light); margin: 0 12px; }
 
 .footer__ornament {
   display: flex;
@@ -38,8 +38,8 @@
   margin: 20px auto;
   width: 180px;
 }
-.footer__ornament-line { flex: 1; height: 1px; background: rgba(255,255,255,.12); }
-.footer__ornament-dot  { width: 5px; height: 5px; background: var(--color-gold); border-radius: 50%; opacity: .6; }
+.footer__ornament-line { flex: 1; height: 1px; background: rgba(255,255,255,.15); }
+.footer__ornament-dot  { width: 5px; height: 5px; background: var(--color-primary-light); border-radius: 50%; opacity: .6; }
 
 .footer__date {
   font-size: .78rem;
@@ -59,6 +59,7 @@
   margin-bottom: 36px;
   transition: color .2s;
 }
-.footer__map:hover { color: var(--color-gold); }
+.footer__map:hover { color: var(--color-primary-light); }
 
 .footer__copy { font-size: .68rem; opacity: .2; letter-spacing: 2px; text-transform: uppercase; }
+

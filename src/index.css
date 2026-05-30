@@ -2,22 +2,24 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --color-primary:       #c97b5a;
-  --color-primary-light: #e8a98d;
-  --color-accent:        #7a9e87;
+  --color-primary:       #d97270;
+  --color-primary-light: #f0a09e;
+  --color-accent:        #d97270;
   --color-gold:          #c9a155;
-  --color-dark:          #1c1b29;
-  --color-dark-2:        #2e2d3d;
-  --color-light:         #faf7f3;
-  --color-mid:           #f3ece5;
-  --color-border:        #e8ddd5;
-  --color-text:          #3a3748;
-  --color-muted:         #8e8a9a;
+  --color-dark:          #2c2c2c;
+  --color-dark-2:        #3e3e3e;
+  --color-light:         #fff;
+  --color-mid:           #fff5f4;
+  --color-pink-bg:       #fff0ee;
+  --color-pink-section:  #d97270;
+  --color-border:        #f5d5d3;
+  --color-text:          #3a3a3a;
+  --color-muted:         #9e9e9e;
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans:  'Lato', system-ui, sans-serif;
-  --shadow-sm: 0 2px 12px rgba(28,27,41,.07);
-  --shadow-md: 0 8px 32px rgba(28,27,41,.12);
-  --shadow-lg: 0 20px 60px rgba(28,27,41,.18);
+  --shadow-sm: 0 2px 12px rgba(0,0,0,.06);
+  --shadow-md: 0 8px 32px rgba(0,0,0,.10);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,.15);
   --radius-sm: 6px;
   --radius-md: 12px;
   --radius-lg: 20px;

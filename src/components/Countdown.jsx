@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { wedding } from '../config/wedding'
 import './Countdown.css'
 
@@ -27,11 +28,27 @@ export default function Countdown() {
 
   return (
     <section className="countdown">
-      <div className="section-wrap">
-        <div className="section-header">
-          <h2>Đếm ngược đến ngày vui</h2>
-          <p className="section-ornament">✦</p>
+      <div className="countdown__inner">
+        <p className="countdown__subtitle">The Big Day!</p>
+        <div className="countdown__divider">
+          <span className="countdown__divider-line" />
+          <span className="countdown__divider-leaf">✦</span>
+          <span className="countdown__divider-line" />
         </div>
+        <h2 className="countdown__names">
+          {wedding.groomName}
+          <span className="countdown__amp">&amp;</span>
+          {wedding.brideName}
+        </h2>
+        <p className="countdown__hint">
+          Một lời chúc của bạn chắc chắn sẽ làm cho đám cưới của chúng mình có thêm một niềm hạnh phúc!
+        </p>
+        <div className="countdown__actions">
+          <Link to="/rsvp" className="countdown__btn countdown__btn--solid">
+            Xác nhận tham dự
+          </Link>
+        </div>
+        <p className="countdown__date-badge">{wedding.dateDisplay}</p>
         <div className="countdown__grid">
           {[['days','Ngày'],['hours','Giờ'],['minutes','Phút'],['seconds','Giây']].map(([k, label]) => (
             <div key={k} className="countdown__unit">
@@ -44,3 +61,4 @@ export default function Countdown() {
     </section>
   )
 }
+

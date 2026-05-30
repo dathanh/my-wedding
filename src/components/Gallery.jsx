@@ -3,23 +3,43 @@
 export const categories = [
   {
     id: 'pre-wedding',
-    title: 'Ảnh dám hỏi',
+    title: 'Ảnh đám hỏi',
     subtitle: 'Pre-wedding',
-    cover: '1.webp',
+    cover: '_DSC9041.webp',
     photos: [
-      '1.webp',
-    ],
+  "_DSC8885.webp",
+  "_DSC8889.webp",
+  "_DSC8894.webp",
+  "_DSC8902.webp",
+  "_DSC8903.webp",
+  "_DSC8910.webp",
+  "_DSC8912.webp",
+  "_DSC8913.webp",
+  "_DSC8915.webp",
+  "_DSC8933.webp",
+  "_DSC8942.webp",
+  "_DSC8945.webp",
+  "_DSC8951.webp",
+  "_DSC8955.webp",
+  "_DSC8965.webp",
+  "_DSC8979.webp",
+  "_DSC8988.webp",
+  "_DSC8990.webp",
+  "_DSC8999.webp",
+  "_DSC9014.webp",
+  "_DSC9018.webp",
+  "_DSC9026.webp",
+  "_DSC9043.webp",
+  "_DSC9050.webp",
+],
   },
   {
     id: 'wedding-day',
-    title: 'Ngày trọng đại',
+    title: 'Ảnh cưới',
     subtitle: 'Wedding day',
     cover: '4.webp',
     photos: [
-      '4.webp',
-      'ANV00820.webp',
       'ANV00832.webp',
-      'ANV00951.webp',
       'ANV00965.webp',
       'ANV00978.webp',
       'ANV01020.webp',
@@ -27,26 +47,18 @@ export const categories = [
       'ANV01111.webp',
       'ANV01200.webp',
       'ANV01283.webp',
-      'ANV01358.webp',
-      'ANV01373.webp',
-      'ANV01388.webp',
       'ANV01496.webp',
       'ANV01507.webp',
       'ANV01532.webp',
       'ANV01547.webp',
       'ANV01554.webp',
       'ANV01563.webp',
-      'ANV01592 .webp',
+      'ANV01592.webp',
       'ANV01610.webp',
       'ANV01680.webp',
       'ANV01688.webp',
       'ANV01702.webp',
-      'ANV01710.webp',
       'ANV01723.webp',
-      'ANV01733.webp',
-      'ANV01782.webp',
-      'ANV01818.webp',
-      'ANV01897.webp',
     ],
   },
 ]
@@ -60,7 +72,7 @@ export default function Gallery({ showCta = false }) {
       <div className="section-wrap">
 
         <div className="section-header">
-          <h2>Bộ ảnh cưới</h2>
+          <h2>Album Hình Cưới</h2>
           <p className="section-ornament">✦</p>
         </div>
 

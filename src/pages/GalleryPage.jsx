@@ -6,11 +6,18 @@ import LazyImage from '../components/LazyImage'
 import '../components/LazyImage.css'
 import './GalleryPage.css'
 
-export default function GalleryPage() {
-  const { categoryId } = useParams()
+export default function GalleryPage({ categoryId: propId }) {
+  const { categoryId: paramId } = useParams()
+  const categoryId = propId ?? paramId
   const category = categories.find(c => c.id === categoryId)
 
   const [lightbox, setLightbox] = useState(null)
+
+  // Reset lightbox and scroll to top when switching categories
+  useEffect(() => {
+    setLightbox(null)
+    window.scrollTo(0, 0)
+  }, [categoryId])
 
   // Keyboard navigation
   const handleKey = useCallback((e) => {

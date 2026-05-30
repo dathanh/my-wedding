@@ -43,7 +43,7 @@ export default function RSVPForm() {
     <section className="rsvp">
       <div className="section-wrap">
         <div className="section-header">
-          <h2>Xác nhận tham dự</h2>
+          <h2>Sổ Lưu Bút</h2>
           <p className="section-ornament">✦</p>
         </div>
 
@@ -59,7 +59,7 @@ export default function RSVPForm() {
                 <input
                   id="name" name="name" type="text" required
                   value={form.name} onChange={handleChange}
-                  placeholder="Nguyễn Văn A"
+                  placeholder=""
                 />
               </div>
               <div className="rsvp__field">

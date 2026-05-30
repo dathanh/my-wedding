@@ -1,4 +1,4 @@
-.rsvp { background: var(--color-light); }
+.rsvp { background: var(--color-mid); }
 
 .rsvp__card {
   max-width: 560px;
@@ -44,7 +44,7 @@
 .rsvp__field textarea:focus {
   outline: none;
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(201,123,90,.12);
+  box-shadow: 0 0 0 3px rgba(217,114,112,.12);
   background: #fff;
 }
 .rsvp__field textarea { resize: vertical; min-height: 100px; }
@@ -52,7 +52,7 @@
 .rsvp__btn {
   width: 100%;
   padding: 16px;
-  background: linear-gradient(135deg, var(--color-primary) 0%, #b5613a 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, #c05a58 100%);
   color: #fff;
   border: none;
   border-radius: var(--radius-sm);
