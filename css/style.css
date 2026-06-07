@@ -757,7 +757,8 @@ a { color: inherit; }
 
 .gp__lightbox { position: fixed; inset: 0; z-index: 2000; background: rgba(10,9,18,.97); display: flex; align-items: center; justify-content: center; animation: fadeUp .2s ease both; cursor: zoom-out; }
 .gp__lb-figure { display: flex; flex-direction: column; align-items: center; gap: 16px; cursor: default; max-width: 90vw; }
-.gp__lb-figure img { max-width: 90vw; max-height: 84vh; object-fit: contain; border-radius: 2px; box-shadow: 0 30px 100px rgba(0,0,0,.7); }
+.gp__lb-figure img { max-width: 90vw; max-height: 84vh; object-fit: contain; border-radius: 2px; box-shadow: 0 30px 100px rgba(0,0,0,.7); transition: filter .3s ease, opacity .3s ease; }
+.gp__lb-figure img.gp__lb-loading { filter: blur(8px); opacity: .7; }
 .gp__lb-caption { font-family: var(--font-sans); font-size: .65rem; letter-spacing: 4px; text-transform: uppercase; color: rgba(255,255,255,.35); }
 .gp__lb-btn { position: fixed; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12); color: #fff; cursor: pointer; border-radius: 50%; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; transition: background .2s; }
 .gp__lb-btn:hover { background: rgba(255,255,255,.18); }
