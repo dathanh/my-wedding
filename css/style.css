@@ -534,8 +534,12 @@ a { color: inherit; }
   font-weight: 300;
   line-height: 1.15;
   margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
 }
-.countdown__amp { font-size: .55em; font-style: normal; opacity: .8; margin: 0 10px; }
+.countdown__amp { display: block; font-size: .55em; font-style: normal; opacity: .8; margin: 4px 0; line-height: 1; }
 .countdown__hint { font-size: .9rem; line-height: 1.7; opacity: .85; margin-bottom: 28px; max-width: 480px; margin-left: auto; margin-right: auto; }
 .countdown__actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 24px; }
 .countdown__btn {
@@ -654,8 +658,8 @@ a { color: inherit; }
   pointer-events: none;
 }
 .footer__inner { position: relative; z-index: 1; }
-.footer__names { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: clamp(2rem, 5vw, 2.8rem); color: #fff; margin-bottom: 4px; }
-.footer__ampersand { color: var(--color-gold); margin: 0 12px; }
+.footer__names { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: clamp(2rem, 5vw, 2.8rem); color: #fff; margin-bottom: 4px; display: flex; flex-direction: column; align-items: center; gap: 0; }
+.footer__ampersand { display: block; color: var(--color-gold); margin: 4px 0; line-height: 1; }
 .footer__ornament { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 20px auto; width: 180px; }
 .footer__ornament-line { flex: 1; height: 1px; background: rgba(255,255,255,.12); }
 .footer__ornament-dot { width: 5px; height: 5px; background: var(--color-gold); border-radius: 50%; opacity: .6; }
@@ -787,8 +791,8 @@ a { color: inherit; }
 .love-story::after  { bottom: -8px; right: -8px; transform: scaleX(-1); }
 .love-story__wrap { max-width: 700px; margin: 0 auto; position: relative; z-index: 1; }
 .love-story__tag { display: inline-block; font-family: var(--font-serif); font-style: italic; font-size: clamp(1.1rem, 2.5vw, 1.45rem); color: var(--color-primary); margin-bottom: 20px; }
-.love-story__title { font-family: var(--font-serif); font-style: italic; font-size: clamp(2.2rem, 5vw, 3.4rem); color: var(--color-dark); line-height: 1.15; margin-bottom: 24px; }
-.love-story__amp { display: inline-block; font-size: .65em; color: var(--color-primary); margin: 0 12px; font-style: normal; }
+.love-story__title { font-family: var(--font-serif); font-style: italic; font-size: clamp(2.2rem, 5vw, 3.4rem); color: var(--color-dark); line-height: 1.15; margin-bottom: 24px; display: flex; flex-direction: column; align-items: center; gap: 0; }
+.love-story__amp { display: block; font-size: .55em; color: var(--color-primary); margin: 4px 0; font-style: normal; line-height: 1; }
 .love-story__ornament { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 28px; }
 .love-story__ornament-line { width: 80px; height: 1px; background: var(--color-border); }
 .love-story__ornament-heart { color: var(--color-primary); font-size: .85rem; }
