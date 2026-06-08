@@ -45,14 +45,14 @@ h1, h2, h3, h4 {
 a { color: inherit; }
 
 .section-wrap {
-  padding: 100px 24px;
+  padding: 30px 24px;
   max-width: 960px;
   margin: 0 auto;
 }
 
 .section-header {
   text-align: center;
-  margin-bottom: 56px;
+  margin-bottom: 32px;
 }
 
 .section-header h2 {
@@ -73,6 +73,8 @@ a { color: inherit; }
   font-size: .7rem;
   letter-spacing: 6px;
   text-transform: uppercase;
+  margin: 0 auto;
+  text-align: center;
 }
 .section-ornament::before,
 .section-ornament::after {
@@ -336,8 +338,8 @@ a { color: inherit; }
   color: var(--color-gold);
   margin-bottom: 22px;
 }
-.invite-card__rings { width: 72px; margin-bottom: 18px; }
-.invite-card__rings svg { width: 100%; }
+.invite-card__rings { display: block; width: 60px; line-height: 0; margin: 4px auto; }
+.invite-card__rings svg { width: 100%; height: auto; }
 .invite-card__names {
   font-family: var(--font-serif);
   font-style: italic;
