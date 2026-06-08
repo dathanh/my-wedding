@@ -2,8 +2,8 @@
 const wedding = {
   groomName: 'Đỗ Đạt Thành',
   brideName: 'Dương Thị Thu Thuỷ',
-  date: '2026-07-26',
-  dateDisplay: 'Chủ nhật, ngày 26 tháng 07 năm 2026',
+  date: '2026-07-21',
+  dateDisplay: 'Thứ ba, ngày 21 tháng 07 năm 2026',
   time: '11:00',
   venue: {
     name: 'Trung tâm Hội nghị - Tiệc cưới Diamond Place',
@@ -36,8 +36,8 @@ const wedding = {
 const categories = [
   {
     id: 'pre-wedding',
-    title: 'Ảnh đám hỏi',
-    subtitle: 'Pre-wedding',
+    title: 'Ảnh đính hôn',
+    subtitle: 'Engagement',
     cover: '_DSC9041.webp',
     href: 'gallery/pre-wedding.html',
     photos: [
@@ -52,7 +52,7 @@ const categories = [
   {
     id: 'wedding-day',
     title: 'Ảnh cưới',
-    subtitle: 'Wedding day',
+    subtitle: 'Wedding',
     cover: '4.webp',
     href: 'gallery/wedding-day.html',
     photos: [
@@ -443,13 +443,21 @@ function initEnvelopeHero() {
   const openBtn = document.getElementById('env-open-btn')
   if (!openBtn) return
 
-  const env       = document.getElementById('env')
-  const envScene  = document.getElementById('env-scene')
+  const env        = document.getElementById('env')
+  const envScene   = document.getElementById('env-scene')
   const inviteCard = document.getElementById('invite-card')
   const heroScroll = document.getElementById('hero-scroll')
 
+  // Lock scroll while envelope is showing
+  document.body.style.overflow = 'hidden'
+
   function doOpen() {
     if (openBtn.disabled) return
+    // Remove scroll-trigger listeners
+    window.removeEventListener('wheel',     onScrollGesture)
+    window.removeEventListener('touchmove', onScrollGesture)
+    window.removeEventListener('keydown',   onScrollGesture)
+
     // Phase 1: open the flap
     env.classList.add('env--open')
     openBtn.disabled = true
@@ -459,6 +467,8 @@ function initEnvelopeHero() {
       envScene.classList.add('env-scene--hidden')
       inviteCard.classList.add('invite-card--visible')
       inviteCard.removeAttribute('aria-hidden')
+      // Unlock scroll once card is visible
+      document.body.style.overflow = ''
     }, 550)
 
     // Phase 3: show scroll arrow
@@ -467,10 +477,19 @@ function initEnvelopeHero() {
     }, 1300)
   }
 
-  openBtn.addEventListener('click', doOpen)
+  // Trigger open on any scroll gesture (wheel, touch swipe down, keyboard scroll keys)
+  function onScrollGesture(e) {
+    const scrollKeys = ['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', ' ']
+    if (e.type === 'keydown' && !scrollKeys.includes(e.key)) return
+    e.preventDefault()
+    doOpen()
+  }
 
-  // Auto-open after 5 seconds
-  setTimeout(doOpen, 5000)
+  window.addEventListener('wheel',     onScrollGesture, { passive: false })
+  window.addEventListener('touchmove', onScrollGesture, { passive: false })
+  window.addEventListener('keydown',   onScrollGesture)
+
+  openBtn.addEventListener('click', doOpen)
 }
 
 // ─── Init ────────────────────────────────────────────────────────────────────
