@@ -131,6 +131,16 @@
   document.getElementById('gp-lb-prev').addEventListener('click', () => open((current - 1 + items.length) % items.length))
   document.getElementById('gp-lb-next').addEventListener('click', () => open((current + 1) % items.length))
   lb.addEventListener('click', e => { if (e.target === lb) close() })
+
+  let touchStartX = 0
+  lb.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX }, { passive: true })
+  lb.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - touchStartX
+    if (Math.abs(dx) > 40) dx < 0
+      ? open((current + 1) % items.length)
+      : open((current - 1 + items.length) % items.length)
+  }, { passive: true })
+
   document.addEventListener('keydown', e => {
     if (lb.style.display === 'none') return
     if (e.key === 'Escape')     close()
