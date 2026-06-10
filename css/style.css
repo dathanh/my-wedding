@@ -137,12 +137,12 @@ a { color: inherit; }
   margin-bottom: 18px;
 }
 .env-monogram__letter {
-  font-size: clamp(3.8rem, 11vw, 5.5rem);
+  font-size: clamp(5rem, 14vw, 7rem);
   font-style: italic;
   font-weight: 300;
 }
 .env-monogram__amp {
-  font-size: clamp(2rem, 7vw, 3.2rem);
+  font-size: clamp(2.6rem, 9vw, 4rem);
   font-style: italic;
   color: rgba(44,44,44,.5);
   align-self: center;
@@ -152,11 +152,19 @@ a { color: inherit; }
 /* Tagline */
 .env-tagline {
   font-family: var(--font-sans);
-  font-size: clamp(.58rem, 1.8vw, .72rem);
+  font-size: clamp(.78rem, 2.4vw, 1rem);
   letter-spacing: 5px;
   color: rgba(44,44,44,.6);
   text-transform: uppercase;
-  margin-bottom: 26px;
+  margin-bottom: 10px;
+}
+.env-guest-name {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.4rem, 4.5vw, 2rem);
+  color: rgba(44,44,44,.75);
+  letter-spacing: 1px;
+  margin-bottom: 18px;
 }
 
 /* ─── Envelope graphic ─── */
@@ -274,13 +282,13 @@ a { color: inherit; }
 .env-greeting__dear {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: clamp(.95rem, 2.8vw, 1.15rem);
+  font-size: clamp(1.15rem, 3.5vw, 1.45rem);
   color: var(--color-dark);
   margin-bottom: 6px;
 }
 .env-greeting__text {
   font-family: var(--font-serif);
-  font-size: clamp(.85rem, 2.2vw, 1rem);
+  font-size: clamp(1rem, 2.8vw, 1.25rem);
   font-weight: 300;
   line-height: 1.75;
 }
@@ -713,6 +721,36 @@ a { color: inherit; }
 .footer__map { display: inline-flex; align-items: center; gap: 6px; color: rgba(255,255,255,.4); text-decoration: none; font-size: .85rem; margin-bottom: 36px; transition: color .2s; }
 .footer__map:hover { color: var(--color-gold); }
 .footer__copy { font-size: .68rem; opacity: .2; letter-spacing: 2px; text-transform: uppercase; }
+
+/* ── Back to top ────────────────────────────────────────── */
+.back-to-top {
+  position: fixed;
+  bottom: 28px;
+  right: 22px;
+  z-index: 9999;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(217,114,112,.40);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity .3s, visibility .3s, transform .3s, background .2s;
+}
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.back-to-top:hover { background: var(--color-primary-light); }
+.back-to-top svg { width: 18px; height: 18px; }
 
 /* ══════════════════════════════════════════════════════
    RSVP Form

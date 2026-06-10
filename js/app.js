@@ -493,7 +493,39 @@ function initEnvelopeHero() {
 }
 
 // ─── Init ────────────────────────────────────────────────────────────────────
+// ─── Guest Name from URL ─────────────────────────────────────────────────────
+function initGuestName() {
+  const params = new URLSearchParams(location.search)
+  const name = decodeURIComponent(params.get('name') || '').trim()
+  if (!name) return
+
+  // Show name below tagline in envelope scene
+  const tagline = document.querySelector('.env-tagline')
+  if (tagline) {
+    const el = document.createElement('p')
+    el.className = 'env-guest-name'
+    el.textContent = name
+    tagline.insertAdjacentElement('afterend', el)
+  }
+
+  // Auto-fill RSVP name input
+  const nameInput = document.getElementById('name')
+  if (nameInput) nameInput.value = name
+
+  // Append ?name=... to all rsvp.html links on this page
+  document.querySelectorAll('a[href]').forEach(a => {
+    const href = a.getAttribute('href')
+    if (!href) return
+    if (href.includes('rsvp.html') || href.includes('index.html')) {
+      const url = new URL(href, location.href)
+      url.searchParams.set('name', name)
+      a.setAttribute('href', url.pathname + url.search)
+    }
+  })
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+  initGuestName()
   initEnvelopeHero()
   initCountdown()
   initCoupleProfile()
@@ -503,3 +535,13 @@ document.addEventListener('DOMContentLoaded', () => {
   initRSVP()
   initGalleryPage()
 })
+
+// ─── Back to top ─────────────────────────────────────────────────────────────
+;(function () {
+  const btn = document.getElementById('back-to-top')
+  if (!btn) return
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('visible', window.scrollY > 300)
+  }, { passive: true })
+  btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }))
+})()
